@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Мой Сайт</title>
+    <meta charset="UTF-8">
+    <title>Nova Class - Главная</title>
+    <style>
+        body { background: #0f172a; color: white; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding: 40px; }
+        .card { width: 500px; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px; }
+        h1 { font-weight: 300; }
+        #display-area { margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.2); border-radius: 10px; }
+    </style>
 </head>
-<body id="body">
-    <h1>Привет! Это мой сайт.</h1>
+<body>
+    <div class="card">
+        <h1>Nova Class</h1>
+        <div id="display-area">Загрузка данных...</div>
+    </div>
+
     <script>
-        fetch('settings.json')
-            .then(response => response.json())
+        fetch('data.json')
+            .then(res => res.json())
             .then(data => {
-                document.body.style.backgroundColor = data.bgColor;
+                document.getElementById('display-area').innerHTML = `<h3>${data.title}</h3><p>${data.description}</p>`;
             });
     </script>
 </body>
