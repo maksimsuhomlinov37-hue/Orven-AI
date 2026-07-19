@@ -1,1 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Админ-панель</title>
+</head>
+<body>
+    <h2>Настройка цвета фона:</h2>
+    <input type="color" id="colorPicker">
+    <button onclick="saveSettings()">Сохранить настройки</button>
 
+    <script>
+        function saveSettings() {
+            const color = document.getElementById('colorPicker').value;
+            const data = JSON.stringify({ bgColor: color });
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'settings.json';
+            a.click();
+        }
+    </script>
+</body>
+</html>
