@@ -1,3 +1,6 @@
 {
-  "bgColor":"#ff0000"
+  "title": "Добро пожаловать в Nova Class",
+  "description": "Платформа для эффективного обучения и планирования.",
+  "status": "active",
+  "version": "1.0.0"
 }
